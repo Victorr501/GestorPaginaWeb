@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device=width, initial-scale=1.0">
-        <title>Gestor - Actualizar Contraseña</title>
+        <title>Gestor - Actualizar contraseña</title>
         <link rel="stylesheet" href="">
         <link rel="icon" href="" type="imagen/png"> 
     </head>
@@ -13,7 +13,7 @@
             <p>Escribe la nueva contraseña para recuperarla</p>
        </header> 
        <seaction>
-            <form>
+            <form id = "resetForm">
                 <!--Escribir la nueva contraseña-->
                 <label>Nueva contraseña</label>
                 <input type="password" id="password" name="password" required>
@@ -27,11 +27,15 @@
                 <!--Boton para enviarlo-->
                 <button type="submit">Actualizar contraseña</button>
             </form>
+            <!--Mensaje para hacer -->
+            <p id="mensaje"></p> 
        </seaction>
 
        <!--Pie de pagina-->
        <section>
             <label>Gestor - Hecho por Víctor Rubin</label>
        </section>
+
     </body>
+    <script src="/js/cambiarContraseña/cambiarContraseña.js"></script>
 </html>
