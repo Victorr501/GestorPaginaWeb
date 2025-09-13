@@ -1,4 +1,4 @@
-import recuperacionToken from "../service/tokenService";
+import {restablecerContraseña}from "../service/tokenService";
 
 
 //Obtener token de la URL
@@ -11,13 +11,18 @@ if (!token){
     mensaje.textContent= "No se ha encontrado en la URL";
 }
 
-const form = document.getElementById("resetForm");
+const form = document.getElementById("boton");
 
-form.addEventListener("submit", async (event) => {
+form.addEventListener("click", async (event) => {
     event.preventDefault(); //evita recargar la página
+
 
     const password = document.getElementById("password").value;
     const confirm = document.getElementById("confirm").value;
+
+    console.log('Password:', password);
+    console.log('Token:', token);
+
 
     if (password !== confirm){
         mensaje.textContent = "La contraseña no coinciden";
@@ -30,20 +35,19 @@ form.addEventListener("submit", async (event) => {
     }
 
     try{
-        const recuperacionToken = {password : password, token: token};
-        const respuesta = await recuperacionToken(recuperacionToken);
+        const data = {password : password, token: token};
+        const respuesta = await restablecerContraseña(data);
         mensaje.textContent = respuesta.mensaje ;
 
         if(respuesta.success){
-            window.location.href = "/html/cambiarContraseña/completado.html";
+            window.location.href = "/html/cambiarContrasena/completado.html";
         } else {
             mensaje.textContent = respuesta.mensaje || "Error inseperado";
         }
 
     } catch(error){
-        console.log(error.mensaje);
-        mensaje.textContent(error);
+        console.log(error.menssaje);
+        mensaje.textContent = error.menssaje;
     };
-
 });
 
