@@ -1,3 +1,4 @@
+import recuperacionToken from "../service/tokenService";
 
 
 //Obtener token de la URL
@@ -19,19 +20,29 @@ form.addEventListener("submit", async (event) => {
     const confirm = document.getElementById("confirm").value;
 
     if (password !== confirm){
-        mensaje.textContent("La contraseña no coinciden");
+        mensaje.textContent = "La contraseña no coinciden";
         return;
     }
 
     if (password.length <= 6){
-        mensaje.textContent("La contraseña es muy corta");
+        mensaje.textContent = "La contraseña es muy corta";
         return;
     }
 
     try{
+        const recuperacionToken = {password : password, token: token};
+        const respuesta = await recuperacionToken(recuperacionToken);
+        mensaje.textContent = respuesta.mensaje ;
+
+        if(respuesta.success){
+            window.location.href = "/html/cambiarContraseña/completado.html";
+        } else {
+            mensaje.textContent = respuesta.mensaje || "Error inseperado";
+        }
 
     } catch(error){
-
+        console.log(error.mensaje);
+        mensaje.textContent(error);
     };
 
 });
