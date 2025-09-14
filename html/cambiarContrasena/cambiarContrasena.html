@@ -11,7 +11,7 @@
        <header>
             <h1>¿Has perdido la Contraseña?</h1>
             <p>Escribe la nueva contraseña para recuperarla</p>
-       </header> 
+       </header>
        <section>
             <form id = "resetForm">
                 <!--Escribir la nueva contraseña-->
@@ -24,7 +24,8 @@
                 <input type="password" id="confirm" name="confirm" required>
                 <br><br>
 
-                <button type="button" id="boton">Actualizar contraseña</button>
+                <!--<button type="button" id="boton">Actualizar contraseña</button>-->
+                <input type="submit" value="Actualizar contraseña">
                 
             </form>
             <!--Boton para enviarlo-->
@@ -37,7 +38,9 @@
        <section>
             <label>Gestor - Hecho por Víctor Rubin</label>
        </section>
-       <script src="../../js/cambiarContrasena/control/cambiarContrasenaControl.js?v=1.5"></script>
+       <script src="../../js/cambiarContrasena/service/tokenService.js"></script>
+       <script src="../../js/cambiarContrasena/control/cambiarContrasenaControl.js?v=1.5">
+       </script>
     </body>
     
 </html>
