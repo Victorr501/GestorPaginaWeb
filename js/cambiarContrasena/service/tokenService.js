@@ -3,11 +3,11 @@ console.log("Token service cargado");
 const API_BASE_URL = 'http://localhost:8000/api/v1';
 
 //function restablecerContrasena =  async(recuperacionToken) => {
-async function restablecerContrasena() {
+async function restablecerContrasena(recuperacionToken) {
     const url = `${API_BASE_URL}/token/recuperacion`
 
     try{
-        const recuperacionToken = "hola mundo"
+
         const response = await fetch(url, {
             method: 'POST',
             headers:{
